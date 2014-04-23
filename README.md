@@ -18,10 +18,10 @@ In cases where the lookup is successful the result is returned to the user very 
 Usage
 -----
 It's very simple to use, simply run, './flookup <IP Address>', eg.;
-'''
+```
 ./flookup 10.0.0.1
-'''
+```
 or, to lookup the IP address associated with a hostname, './flookup <hostname>', eg.;
-'''
+```
 ./flookup example.com
-'''
+```
