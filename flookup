@@ -9,6 +9,7 @@ except:
   exit(1)
 
 try:
+  # This IP address checking isn't very robust
   if myInput[0].isdigit() and myInput[-1:].isdigit():
     myOutput = socket.gethostbyaddr(myInput)
   else:
