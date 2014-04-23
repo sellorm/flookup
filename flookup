@@ -1,0 +1,28 @@
+#!/usr/bin/env python
+import socket
+import sys
+
+try:
+  myInput = sys.argv[1]
+except:
+  print "Usage: ./lookup <hostname|ip address>"
+  exit(1)
+
+try:
+  if myInput[0].isdigit() and myInput[-1:].isdigit():
+    myOutput = socket.gethostbyaddr(myInput)
+  else:
+    myOutput = socket.gethostbyname(myInput)
+    isHostname = "yes"
+except:
+  print myInput + " - Record not found"
+  exit(2)
+
+try:
+  isHostname
+except:
+  print myInput + " - " + myOutput[0]
+else:
+  print myInput + " - " + myOutput
+
+exit(0)
