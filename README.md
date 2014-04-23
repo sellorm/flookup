@@ -9,6 +9,19 @@ Whilst testing something else entirely I had occasion to make sure that a change
 
 Solution
 --------
-So the solutions was to write a tool to perform host and IP lookups properly, honouring the order in nsswitch.conf. The Python socket library has a couple of functions, gethostbyname() and gethostbyaddr() which work in the correct way.
+So the solution was to write a tool to perform host and IP lookups properly, honouring the order in nsswitch.conf. The Python socket library has a couple of functions, gethostbyname() and gethostbyaddr() which work in this way.
 
-It's not the best written tool on the planet, but it does it's job pretty well. In cases where the lookup is successful the result is returned to the user very quickly. Lookup failures take quite a bit longer.
+It's not the best written tool on the planet, but it does it's job pretty well. Input checking should probably be better - checking if the first and last characters of the input are digits is a ropey way of determining if it's an IP address!
+
+In cases where the lookup is successful the result is returned to the user very quickly. Lookup failures take quite a bit longer.
+
+Usage
+-----
+It's very simple to use, simply run, './flookup <IP Address>', eg.;
+'''
+./flookup 10.0.0.1
+'''
+or, to lookup the IP address associated with a hostname, './flookup <hostname>', eg.;
+'''
+./flookup example.com
+'''
